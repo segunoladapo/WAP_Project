@@ -46,7 +46,8 @@
       </div>
 
       <div id="signupforgot">
-        <a href="forgotpass" title="Recover your password here">Forgot your password ?</a> | <a href="signup" title="Sign Up here">Sign Up</a>
+        <%--<a href="forgotpass" title="Recover your password here">Forgot your password ?</a> | <a href="signup" title="Sign Up here">Sign Up</a>--%>
+        <a href="/registration.jsp">Sign Up</a>
       </div>
 
     </div>
