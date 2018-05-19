@@ -7,7 +7,6 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private String phone;
 
     public String getUsername() {
         return username;
@@ -33,11 +32,4 @@ public class User {
         this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }

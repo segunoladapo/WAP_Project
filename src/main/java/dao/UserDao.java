@@ -12,9 +12,12 @@ import java.util.Optional;
 public class UserDao {
 
     private static List<User> users;
-    {
+    static {
         users = new ArrayList<>();
-
+        User user = new User();
+        user.setUsername("sunil");
+        user.setPassword("sunil");
+        users.add(user);
     }
     public static void createUser(User user){
         users.add(user);
@@ -24,6 +27,13 @@ public class UserDao {
         return users.stream()
                 .filter(user -> user.getUsername().equals(username))
                 .findAny();
+    }
+
+    public static Optional<User> findUserByPwdAndUsername(String username, String password){
+        return users.stream()
+                .filter(user -> user.getUsername().equals(username) && user.getPassword().equals(password))
+                .findAny();
+
     }
 
 
