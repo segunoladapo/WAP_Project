@@ -25,6 +25,7 @@
     <div id="loginBox">
         <div class="formElement">
             <c:out value="${msg}"/><br>
+          <div id="errorMsg"></div>
             <label for="userName">User Name</label>
             <div class="input">
                 <input type="text" name="userName" id="userName"/>
