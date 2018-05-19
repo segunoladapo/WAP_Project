@@ -6,6 +6,7 @@ package model;
 public class ToDoList {
     private String username;
     private String createDate;
+    private String title;
     private String summary;
     private String expiredDate;
     private Priority priority;
@@ -59,5 +60,13 @@ public class ToDoList {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
