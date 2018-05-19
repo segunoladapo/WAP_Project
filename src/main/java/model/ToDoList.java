@@ -11,6 +11,7 @@ public class ToDoList {
     private String expiredDate;
     private Priority priority;
     private String id;
+    private String button;
 
 
 
@@ -68,5 +69,13 @@ public class ToDoList {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getButton() {
+        return button;
+    }
+
+    public void setButton(String button) {
+        this.button = button;
     }
 }

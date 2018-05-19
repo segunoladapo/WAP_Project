@@ -22,6 +22,8 @@ public class ToDoListDao {
         toDoList.setTitle("hello title");
         toDoList.setPriority(Priority.HIGH);
         toDoList.setId("1234444");
+        toDoList.setCreateDate("jasndsajdkandkj");
+        toDoList.setButton("<input type=\"button\" value=\"View\" onclick=\"window.location.href='#'\" />");
         toDoLists.add(toDoList);
     }
 

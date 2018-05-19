@@ -30,9 +30,9 @@ ${user.password}
         <th>Name</th>
         <th>Date Created</th>
         <th>Title</th>
-        <th>Summary</th>
         <th>Expiry Date</th>
         <th>Priority</th>
+        <th>View</th>
 
 
 
@@ -46,16 +46,17 @@ ${user.password}
         $("#example").DataTable({
             "ajax": {
                 "url": "/todoList",
-                "columns": [
-                    { "data": "username" },
-                    { "data": "createDate" },
-                    { "data": "title" },
-                    { "data": "summary" },
-                    { "data": "expiredDate" },
-                    { "data": "priority" },
-                    { "data": "id"}
-                ]
-            }
+                "dataSrc":""
+            },
+            "columns": [
+                { "data": "username" },
+                { "data": "createDate" },
+                { "data": "title" },
+                { "data": "expiredDate" },
+                { "data": "priority" },
+                { "data": "button" }
+            ]
+
         });
     });
 </script>

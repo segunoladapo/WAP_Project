@@ -2,10 +2,7 @@ package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.ToDoListDao;
-import model.Priority;
-import model.Response;
-import model.ToDoList;
-import model.User;
+import model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +35,7 @@ public class ToDoListServlet extends HttpServlet {
         toDoList.setTitle(req.getParameter("title"));
         toDoList.setUsername(user.getUsername());
         toDoList.setSummary(req.getParameter("summary"));
+        toDoList.setButton("<input type=\"button\" value=\"View\" onclick=\"window.location.href='#'\" />");
         ToDoListDao.AddList(toDoList);
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();
@@ -54,12 +52,19 @@ public class ToDoListServlet extends HttpServlet {
         User user = (User) sessionObject.getAttribute("userName");
         List<ToDoList> toDoLists = ToDoListDao.getToDoListsByUsername(user.getUsername());
         resp.setContentType("application/json");
+
         PrintWriter out = resp.getWriter();
+        TodoListResponse todoListResponse = new TodoListResponse();
+        todoListResponse.setData(toDoLists);
         String serialized = new ObjectMapper().writeValueAsString(toDoLists);
         out.print(serialized);
         out.flush();
     }
 
-
-
+    @Override
+    public void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession sessionObject = req.getSession();
+        User user = (User) sessionObject.getAttribute("userName");
+        String id = req.getParameter("id");
     }
+}
