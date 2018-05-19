@@ -2,7 +2,10 @@ package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.ToDoListDao;
-import model.*;
+import model.Priority;
+import model.Response;
+import model.ToDoList;
+import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,9 +55,7 @@ public class ToDoListServlet extends HttpServlet {
         List<ToDoList> toDoLists = ToDoListDao.getToDoListsByUsername(user.getUsername());
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();
-        TodoListResponse todoListResponse = new TodoListResponse();
-        todoListResponse.setData(toDoLists);
-        String serialized = new ObjectMapper().writeValueAsString(todoListResponse);
+        String serialized = new ObjectMapper().writeValueAsString(toDoLists);
         out.print(serialized);
         out.flush();
     }
