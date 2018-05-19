@@ -19,12 +19,13 @@
 
   </head>
   <body>
-  <div id="container">
 
+  <div id="container">
+    <div id="errormessage"><c:out value="${msg}"/></div>
     <h1>Login</h1>
     <div id="loginBox">
       <div class="formElement">
-        <c:out value="${msg}"/><br>
+
         <label for="userName">User Name</label>
         <div class="input">
           <input type="text" name="userName" id="userName"/>
@@ -43,16 +44,17 @@
       </div>
 
       <div id="submitionBlock">
-        <button id="btnSubmit">Log in</button>
+        <button id="btnSubmit" class="btn">Log in</button>
       </div>
 
       <div id="signupforgot">
         <%--<a href="forgotpass" title="Recover your password here">Forgot your password ?</a> | <a href="signup" title="Sign Up here">Sign Up</a>--%>
-        <a href="/registration.jsp">Sign Up</a>
+        <a href="/registration.jsp"><button class="btn">Sign up</button></a>
       </div>
 
     </div>
-  </div>
+
+    </div>
   </body>
   <script src="<c:url value="resources/js/jquery-3.3.1.min.js" />" type="text/javascript"></script>
   <script src="<c:url value="resources/js/lab12.js" />" type="text/javascript"></script>

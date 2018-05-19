@@ -19,9 +19,7 @@ $(function () {
                         var err = $("<div>");
                         err.html(result.message);
                         err.css("text-align","center");
-
                         err.insertBefore("#loginBox",null);
-
                     }
                 });
         }
