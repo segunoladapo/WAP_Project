@@ -15,18 +15,21 @@
 <body>
 <div id="container">
     <h1>Registration</h1>
+    <form method="post" action="/createuser">
     <div id="loginBox">
         <div class="formElement">
+            <c:out value="${msg}"/><br>
+            <div id="errormessage"></div>
             <label for="userName">User Name</label>
             <div class="input">
-                <input type="text" name="userName" id="userName" required/>
+                <input type="text" name="username" id="userName" required/>
             </div>
         </div>
 
         <div class="formElement">
             <label for="passWord">Password</label>
             <div class="input">
-                <input type="password" name="passWord" id="passWord" required />
+                <input type="password" name="password" id="passWord" required />
             </div>
         </div>
 
@@ -38,10 +41,12 @@
         </div>
 
         <div id="submitionBlock">
-            <button id="btnSubmit">Sign up</button>
+            <button id="submitbtn">Sign up</button>
         </div>
     </div>
+    </form>
 </div>
 </body>
 <script src="<c:url value="resources/js/jquery-3.3.1.min.js" />" type="text/javascript"></script>
+<script src="<c:url value="resources/js/registration.js" />" type="text/javascript"></script>
 </html>
