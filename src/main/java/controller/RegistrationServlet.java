@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 
-@WebServlet("/creeateuser")
+@WebServlet("/createuser")
 public class RegistrationServlet extends HttpServlet {
 
     @Override
@@ -25,7 +25,7 @@ public class RegistrationServlet extends HttpServlet {
             Optional<User> optionalUser = UserDao.findUser(username);
             if(optionalUser.isPresent()){
                 req.setAttribute("msg","Username Already exist. Please use another username");
-                req.getRequestDispatcher("/index.jsp").forward(req,resp);
+                req.getRequestDispatcher("/registration.jsp").forward(req,resp);
                 return;
             }
             User newUser = new User();
