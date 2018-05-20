@@ -11,6 +11,7 @@
 <head>
     <title>Task List</title>
     <link href="<c:url value="resources/css/taskslist.css" />" rel="stylesheet">
+
 </head>
 <body>
 <div id="container">

@@ -1,9 +1,7 @@
 package dao;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import model.Priority;
 import model.ToDoList;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

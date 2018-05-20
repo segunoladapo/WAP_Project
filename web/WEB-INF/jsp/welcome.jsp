@@ -16,30 +16,50 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 
+    <link href="<c:url value="../../resources/css/taskslist.css" />" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
-<div id="test"></div>
-${user.username}
-${user.password}
+<div id="container">
+    <a href="/logout"><button class ="mybutton" id="logoutbutton" >Logout</button></a>
+    <div id="leftwrapper">
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date Created</th>
+                <th>Title</th>
+                <th>Expiry Date</th>
+                <th>Priority</th>
+                <th>View</th>
+            </tr>
+            </thead>
 
+        </table>
+    </div>
+    <div id="rightwrapper">
+        <div id="result"></div>
 
-<table id="example" class="display" cellspacing="0" width="100%">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Date Created</th>
-        <th>Title</th>
-        <th>Expiry Date</th>
-        <th>Priority</th>
-        <th>View</th>
+            <label id="labeltitle">Title </label>
+            <input type="text" id="title" class="input" name="title"> <br>
 
+            <label id="labeldate">Expiry Date </label>
+            <input type="text" id="expiredDate" class="input" name="expiredDate"> <br>
 
+            <textarea id="summary" name="summary">Summary</textarea> <br>
 
-    </tr>
-    </thead>
+            <label id="labelpriority">Priority</label>
+            <select id="priority" name="priority">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+            </select></label>
+            <br>
+            <input type="submit" value="Submit" class="mybutton" id="submitbutton">
 
-</table>
+    </div>
+</div>
+
 </body>
 <script>
     $(document).ready(function() {
@@ -59,6 +79,42 @@ ${user.password}
 
         });
     });
+    $(function () {
+
+            $("#submitbutton").click(
+                function (eventData) {
+
+                    var title = $("#title").val();
+                    var expiredDate = $("#expiredDate").val();
+                    var summary = $("#summary").val();
+                    var priority = $("#priority").val();
+                    $.post(
+                        "/todoList",
+                        {"title":title,"expiredDate":expiredDate,"summary":summary,"priority":priority})
+                        .done(function( data ) {
+                            $("#result").text(data.message);
+                            $("#example").DataTable({
+                                destroy:true,
+                                "ajax": {
+                                    "url": "/todoList",
+                                    "dataSrc":""
+                                },
+                                "columns": [
+                                    { "data": "username" },
+                                    { "data": "createDate" },
+                                    { "data": "title" },
+                                    { "data": "expiredDate" },
+                                    { "data": "priority" },
+                                    { "data": "button" }
+                                ]
+
+                            });
+                        });
+
+                }
+            );
+        }
+    );
 </script>
 
 </html>
