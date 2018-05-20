@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: #A8F0F0;
+    /*background-color: #A8F0F0;*/
     background-size: cover;
     width: 100%;
     /*background-attachment: fixed;*/
@@ -62,10 +62,13 @@ input[type="checkbox"]{
 #btnSubmit:hover{
     cursor: pointer;
 }
+#submitbtn:hover{
+    cursor:pointer;
+}
 #signupforgot{
     margin-top: 10px;
     text-align: right;
 }
-#errormessage{
+#errorMsg{
     color:red;
 }
