@@ -16,7 +16,7 @@ $(function () {
                         window.location = 'welcome';
                     }
                     else {
-                        var err = $("<div>");
+                        var err = $("#errorMsg");
                         err.html(result.message);
                         err.css("text-align","center");
                         err.insertBefore("#loginBox",null);
