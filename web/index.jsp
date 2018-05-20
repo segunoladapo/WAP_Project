@@ -44,14 +44,13 @@
         </div>
 
         <div id="submitionBlock">
-            <button id="btnSubmit">Log in</button>
+            <button id="btnSubmit" class="btn">Log in</button>
         </div>
 
         <div id="signupforgot">
             <%--<a href="forgotpass" title="Recover your password here">Forgot your password ?</a> | <a href="signup" title="Sign Up here">Sign Up</a>--%>
-            <a href="/registration.jsp">Sign Up</a>
+            <a href="/registration.jsp"><button class="btn" id="submitbtn">Sign up</button></a>
         </div>
-
     </div>
 </div>
 </body>

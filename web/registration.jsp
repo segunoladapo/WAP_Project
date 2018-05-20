@@ -13,13 +13,14 @@
     <link href="<c:url value="resources/css/lab12.css" />" rel="stylesheet">
 </head>
 <body>
+
 <div id="container">
+
     <h1>Registration</h1>
-    <form method="post" action="/createuser">
+    <div id="errormessage"><c:out value="${msg}"/></div>
+    <form action="/createuser" method = "post">
     <div id="loginBox">
         <div class="formElement">
-            <c:out value="${msg}"/><br>
-            <div id="errormessage"></div>
             <label for="userName">User Name</label>
             <div class="input">
                 <input type="text" name="username" id="userName" required/>
@@ -41,7 +42,7 @@
         </div>
 
         <div id="submitionBlock">
-            <button id="submitbtn">Sign up</button>
+            <button class="btn" id="submitbtn">Sign up</button>
         </div>
     </div>
     </form>
