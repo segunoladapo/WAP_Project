@@ -35,7 +35,8 @@ public class ToDoListServlet extends HttpServlet {
         toDoList.setTitle(req.getParameter("title"));
         toDoList.setUsername(user.getUsername());
         toDoList.setSummary(req.getParameter("summary"));
-        toDoList.setButton("<input type=\"button\" value=\"View\" onclick=\"window.location.href='#'\" />");
+        toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">View</button>");
+
         ToDoListDao.AddList(toDoList);
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();

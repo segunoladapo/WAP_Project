@@ -6,6 +6,7 @@ import model.ToDoList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -23,7 +24,7 @@ public class ToDoListDao {
         toDoList.setPriority(Priority.HIGH);
         toDoList.setId("1234444");
         toDoList.setCreateDate("jasndsajdkandkj");
-        toDoList.setButton("<input type=\"button\" value=\"View\" onclick=\"window.location.href='#'\" />");
+        toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">View</button>");
         toDoLists.add(toDoList);
     }
 
@@ -44,5 +45,11 @@ public class ToDoListDao {
         toDoList1.setSummary(toDoList.getSummary());
         toDoList1.setExpiredDate(toDoList.getExpiredDate());
         return toDoList1;
+    }
+
+    public static Optional<ToDoList> findToDoListById(String id){
+        return toDoLists.stream()
+                .filter(todo -> todo.getId().equals(id))
+                .findFirst();
     }
 }
