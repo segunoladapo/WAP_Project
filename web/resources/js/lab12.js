@@ -18,7 +18,11 @@ $(function () {
                     else {
                         var err = $("#errorMsg");
                         err.html(result.message);
-                        err.css("text-align","center");
+                        // err.css("text-align","center");
+                        err.css({
+                            "text-align": "center",
+                            "color": "red"
+                        });
                         err.insertBefore("#loginBox",null);
                     }
                 });

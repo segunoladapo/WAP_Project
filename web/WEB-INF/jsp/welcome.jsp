@@ -20,8 +20,10 @@
     <title>Title</title>
 </head>
 <body>
+    <div id="logoutbuttondiv">
+        <a href="/logout"><button class ="mybutton" id="logoutbutton" >Logout</button></a>
+    </div>
 <div id="container">
-    <a href="/logout"><button class ="mybutton" id="logoutbutton" >Logout</button></a>
     <div id="leftwrapper">
         <table id="example" class="display" cellspacing="0" width="100%">
             <thead>
@@ -40,26 +42,31 @@
     <div id="rightwrapper">
         <div id="result"></div>
 
-            <label id="labeltitle">Title </label>
-            <input type="text" id="title" class="input" name="title"> <br>
+        <div id="titlediv"><div id="titlelabel">Title</div>
+            <input type="text" id="title" class="input" name="title" required>
+        </div>
 
-            <label id="labeldate">Expiry Date </label>
-            <input type="text" id="expiredDate" class="input" name="expiredDate"> <br>
+        <div id="expirydiv"><div id="datelabel">Expiry Date </div>
+            <input type="text" id="expiredDate" class="input" name="expiredDate" placeholder="MM/DD/YYYY" required title ="Format: MM/DD/YYYY" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}">
+        </div>
 
-            <textarea id="summary" name="summary">Summary</textarea> <br>
+        <div id="summarydiv"><div id="summarylabel">Summary</div>
+            <textarea id="summary" name="summary" required></textarea>
+        </div>
 
-            <label id="labelpriority">Priority</label>
-            <select id="priority" name="priority">
+        <div id="prioritydiv"><div id="prioritylabel">Priority</div>
+            <select id="priority" name="priority" required>
                 <option value="LOW">Low</option>
                 <option value="MEDIUM">Medium</option>
                 <option value="HIGH">High</option>
-            </select></label>
-            <br>
+            </select>
+        </div>
+        <div id="submitdiv">
             <input type="submit" value="Submit" class="mybutton" id="submitbutton">
+        </div>
 
     </div>
 </div>
-
 </body>
 <script>
     $(document).ready(function() {
@@ -76,45 +83,46 @@
                 { "data": "priority" },
                 { "data": "button" }
             ]
-
         });
     });
     $(function () {
 
             $("#submitbutton").click(
                 function (eventData) {
+                    if($().val("#title") === "" ||$("#expiredDate").val() === "" ||$("#priority").val() === "" ||$("#summary").val() === ""){
+                        return false;
+                    }else {
+                        var title = $("#title").val();
+                        var expiredDate = $("#expiredDate").val();
+                        var summary = $("#summary").val();
+                        var priority = $("#priority").val();
+                        $.post(
+                            "/todoList",
+                            {"title": title, "expiredDate": expiredDate, "summary": summary, "priority": priority})
+                            .done(function (data) {
+                                $("#result").text(data.message);
+                                $("#example").DataTable({
+                                    destroy: true,
+                                    "ajax": {
+                                        "url": "/todoList",
+                                        "dataSrc": ""
+                                    },
+                                    "columns": [
+                                        {"data": "username"},
+                                        {"data": "createDate"},
+                                        {"data": "title"},
+                                        {"data": "expiredDate"},
+                                        {"data": "priority"},
+                                        {"data": "button"}
+                                    ]
 
-                    var title = $("#title").val();
-                    var expiredDate = $("#expiredDate").val();
-                    var summary = $("#summary").val();
-                    var priority = $("#priority").val();
-                    $.post(
-                        "/todoList",
-                        {"title":title,"expiredDate":expiredDate,"summary":summary,"priority":priority})
-                        .done(function( data ) {
-                            $("#result").text(data.message);
-                            $("#example").DataTable({
-                                destroy:true,
-                                "ajax": {
-                                    "url": "/todoList",
-                                    "dataSrc":""
-                                },
-                                "columns": [
-                                    { "data": "username" },
-                                    { "data": "createDate" },
-                                    { "data": "title" },
-                                    { "data": "expiredDate" },
-                                    { "data": "priority" },
-                                    { "data": "button" }
-                                ]
-
+                                });
                             });
-                        });
 
+                    }
                 }
             );
         }
     );
 </script>
-
 </html>

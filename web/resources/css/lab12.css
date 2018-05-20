@@ -14,7 +14,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: 200px;
-    border: 2px solid #009097;
+    border: 2px solid #D1D1D1;
     padding: 10px 15px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -28,7 +28,7 @@ body{
 
 }
 .input{
-    border: 1px solid #009097;
+    border: 1px solid #D1D1D1;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -42,7 +42,7 @@ input[type="text"],input[type="password"]{
     background-color: transparent;
 }
 input[type="checkbox"]{
-    border: 1px solid #009097;
+    border: 1px solid #D1D1D1;
 }
 #submitionBlock{
     text-align: right;
@@ -51,7 +51,7 @@ input[type="checkbox"]{
 .btn{
     color:#000;
     background-color: transparent;
-    border: 2px solid #009097;
+    border: 2px solid #D1D1D1;
     width: 100px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -69,6 +69,9 @@ input[type="checkbox"]{
     margin-top: 10px;
     text-align: right;
 }
-#errorMsg{
+#errormessage{
     color:red;
+}
+#errorMsg{
+    color: red;
 }
