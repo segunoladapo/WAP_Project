@@ -24,7 +24,7 @@
     <h1>Login</h1>
     <div id="loginBox">
         <div class="formElement">
-            <c:out value="${msg}"/><br>
+            <div id="errormessage"> <c:out value="${msg}"/></div>
           <div id="errorMsg"></div>
             <label for="userName">User Name</label>
             <div class="input">
@@ -39,9 +39,9 @@
             </div>
         </div>
 
-        <div class="formElement">
-            <label><input type="checkbox" name="keepLogged" /> Keep me logged</label>
-        </div>
+        <%--<div class="formElement">--%>
+            <%--<label><input type="checkbox" name="keepLogged" /> Keep me logged</label>--%>
+        <%--</div>--%>
 
         <div id="submitionBlock">
             <button id="btnSubmit" class="btn">Log in</button>

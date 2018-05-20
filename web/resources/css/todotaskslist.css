@@ -8,7 +8,9 @@ body{
     font-weight: bolder;
 }
 #container{
-    margin:auto;
+    margin-left: 35%;
+    margin-top: 100px;
+    width: 50%;
 }
 .input{
     border: 1px solid #D1D1D1;
@@ -42,16 +44,7 @@ body{
     width: 525px;
     height: 200px;
 }
-#leftwrapper{
-    float: left;
-    margin-left: 2%;
-    width: 50%;
-}
-#rightwrapper{
-    margin-top: 120px;
-    margin-left: 62%;
-    width: 50%;
-}
+
 .mybutton{
     color:#000;
     background-color: transparent;
