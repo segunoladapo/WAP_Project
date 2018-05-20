@@ -6,10 +6,12 @@ package model;
 public class ToDoList {
     private String username;
     private String createDate;
+    private String title;
     private String summary;
     private String expiredDate;
     private Priority priority;
     private String id;
+    private String button;
 
 
 
@@ -59,5 +61,21 @@ public class ToDoList {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getButton() {
+        return button;
+    }
+
+    public void setButton(String button) {
+        this.button = button;
     }
 }
