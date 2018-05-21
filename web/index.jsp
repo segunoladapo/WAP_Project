@@ -14,7 +14,7 @@
 
 <html>
 <head>
-    <title>Welcome to lab 12</title>
+    <title>Welcome to ToDo Master</title>
     <link href="<c:url value="resources/css/lab12.css" />" rel="stylesheet">
 
 </head>

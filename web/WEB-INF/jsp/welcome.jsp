@@ -34,6 +34,7 @@
                 <th>Expiry Date</th>
                 <th>Priority</th>
                 <th>View</th>
+                <th>Delete</th>
             </tr>
             </thead>
 
@@ -81,7 +82,8 @@
                 { "data": "title" },
                 { "data": "expiredDate" },
                 { "data": "priority" },
-                { "data": "button" }
+                { "data": "button" },
+                { "data":"deleteButton"}
             ]
         });
     });
@@ -113,7 +115,8 @@
                                         {"data": "title"},
                                         {"data": "expiredDate"},
                                         {"data": "priority"},
-                                        {"data": "button"}
+                                        {"data": "button"},
+                                        { "data":"deleteButton"}
                                     ]
 
                                 });

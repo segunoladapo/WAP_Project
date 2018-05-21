@@ -21,6 +21,7 @@
         <servlet-name>authenticate</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
