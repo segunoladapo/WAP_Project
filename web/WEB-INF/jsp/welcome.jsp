@@ -41,7 +41,7 @@
     </div>
     <div id="rightwrapper">
         <div id="result"></div>
-
+    <form>
         <div id="titlediv"><div id="titlelabel">Title</div>
             <input type="text" id="title" class="input" name="title" required>
         </div>
@@ -64,7 +64,7 @@
         <div id="submitdiv">
             <input type="submit" value="Submit" class="mybutton" id="submitbutton">
         </div>
-
+    </form>
     </div>
 </div>
 </body>
@@ -87,19 +87,32 @@
     });
     $(function () {
 
+
             $("#submitbutton").click(
                 function (eventData) {
-                    if($().val("#title") === "" ||$("#expiredDate").val() === "" ||$("#priority").val() === "" ||$("#summary").val() === ""){
+                    var title = $("#title").val();
+                    var expiredDate = $("#expiredDate").val();
+                    var summary = $("#summary").val();
+                    var priority = $("#priority").val();
+
+                    var selectedDate = new Date(expiredDate);
+                    var now = new Date;
+                    // alert(now);
+                    if (selectedDate < now) {
+                        $("#result").text("Invalid Date");
+                        return false;
+                    }
+                    if(title === "" || expiredDate === "" || summary ==="" || priority === ""){
                         return false;
                     }else {
-                        var title = $("#title").val();
-                        var expiredDate = $("#expiredDate").val();
-                        var summary = $("#summary").val();
-                        var priority = $("#priority").val();
+
                         $.post(
                             "/todoList",
                             {"title": title, "expiredDate": expiredDate, "summary": summary, "priority": priority})
                             .done(function (data) {
+                                $("#title").value = "";
+                                $("#expiredDate").value = "";
+                                $("#summary").value = "";
                                 $("#result").text(data.message);
                                 $("#example").DataTable({
                                     destroy: true,
@@ -118,6 +131,7 @@
 
                                 });
                             });
+
 
                     }
                 }

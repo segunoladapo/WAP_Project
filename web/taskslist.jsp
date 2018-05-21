@@ -22,16 +22,17 @@
 
 
     <div id="rightwrapper">
+        <div id="result"></div>
         <form method="post" action=" # ">
             <label id="labeltitle">Title </label>
-            <input type="text" id="title" class="input" name=""> <br>
+            <input type="text" id="title" class="input" name="title"> <br>
 
             <label id="labeldate">Expiry Date </label>
-            <input type="text" id="date" class="input"> <br>
+            <input type="text" id="date" class="input" name="expiredDate"> <br>
 
-            <textarea id="text-area">Summary</textarea> <br>
+            <textarea id="text-area" name="summary">Summary</textarea> <br>
 
-            <label id="priority">Priority</label>
+            <label id="priority" >Priority</label>
             <select id="select">
                 <option>Low</option>
                 <option>Medium</option>
@@ -43,4 +44,5 @@
     </div>
 </div>
 </body>
+
 </html>

@@ -40,7 +40,7 @@
     </select>
 </div>
 <div id="submitdiv">
-    <input type="submit" value="Submit" class="mybutton" id="subsnaknamitbutton">
+    <input type="submit" value="Update" class="mybutton" id="subsnaknamitbutton">
 </div>
     </form>
 </div>

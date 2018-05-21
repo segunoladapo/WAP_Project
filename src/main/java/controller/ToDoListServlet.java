@@ -54,10 +54,7 @@ public class ToDoListServlet extends HttpServlet {
         User user = (User) sessionObject.getAttribute("userName");
         List<ToDoList> toDoLists = ToDoListDao.getToDoListsByUsername(user.getUsername());
         resp.setContentType("application/json");
-
         PrintWriter out = resp.getWriter();
-        TodoListResponse todoListResponse = new TodoListResponse();
-        todoListResponse.setData(toDoLists);
         String serialized = new ObjectMapper().writeValueAsString(toDoLists);
         out.print(serialized);
         out.flush();
