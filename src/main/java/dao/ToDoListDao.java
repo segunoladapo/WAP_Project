@@ -42,6 +42,7 @@ public class ToDoListDao {
         toDoList1.setPriority(toDoList.getPriority());
         toDoList1.setSummary(toDoList.getSummary());
         toDoList1.setExpiredDate(toDoList.getExpiredDate());
+        toDoList.setTitle(toDoList.getTitle());
         return toDoList1;
     }
 

@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -62,10 +63,5 @@ public class ToDoListServlet extends HttpServlet {
         out.flush();
     }
 
-    @Override
-    public void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        HttpSession sessionObject = req.getSession();
-        User user = (User) sessionObject.getAttribute("userName");
-        String id = req.getParameter("id");
-    }
+
 }
