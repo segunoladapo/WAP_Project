@@ -99,12 +99,12 @@
 
                     var selectedDate = new Date(expiredDate);
                     var now = new Date;
-                    // alert(now);
                     if (selectedDate < now) {
                         $("#result").text("Invalid Date");
                         return false;
                     }
                     if(title === "" || expiredDate === "" || summary ==="" || priority === ""){
+                        $("#result").text("Please enter some texts in the missing fields");
                         return false;
                     }else {
 

@@ -23,7 +23,7 @@
 
     <div id="rightwrapper">
         <div id="result"></div>
-        <form method="post" action=" # ">
+        <%--<form method="post" action=" # ">--%>
             <label id="labeltitle">Title </label>
             <input type="text" id="title" class="input" name="title"> <br>
 
@@ -33,16 +33,15 @@
             <textarea id="text-area" name="summary">Summary</textarea> <br>
 
             <label id="priority" >Priority</label>
-            <select id="select">
+            <select id="select" name="priority">
                 <option>Low</option>
                 <option>Medium</option>
                 <option>High</option>
             </select></label>
             <br>
             <input type="submit" value="Submit" class="mybutton" id="submitbutton">
-        </form>
+        <%--</form>--%>
     </div>
 </div>
 </body>
-
 </html>
