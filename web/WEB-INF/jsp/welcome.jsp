@@ -48,7 +48,11 @@
         </div>
 
         <div id="expirydiv"><div id="datelabel">Expiry Date </div>
-            <input type="text" id="expiredDate" class="input" name="expiredDate" placeholder="MM/DD/YYYY" required title ="Format: MM/DD/YYYY" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}">
+            <input type="input" id="expiredDate"
+                   class="input"
+                   name="expiredDate" placeholder="MM/DD/YYYY"
+                   required title ="Format: MM/DD/YYYY"
+                   pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}">
         </div>
 
         <div id="summarydiv"><div id="summarylabel">Summary</div>
@@ -88,8 +92,6 @@
         });
     });
     $(function () {
-
-
             $("#submitbutton").click(
                 function (eventData) {
                     var title = $("#title").val();
