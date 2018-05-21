@@ -32,7 +32,11 @@
 </div>
 
 <div id="expirydiv"><div id="datelabel">Expiry Date </div>
-    <input type="text" id="expiredDate" class="input" name="expiredDate" required value="${todoList.expiredDate}">
+    <input type="text" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}"
+           id="expiredDate" class="input" name="expiredDate"
+           title ="Format: MM/DD/YYYY"
+           required
+           value="${todoList.expiredDate}" >
 </div>
 
 <div id="summarydiv"><div id="summarylabel">Summary</div>
@@ -87,14 +91,13 @@
             */
 
     function validate() {
-        alert("hello");
+
         var title = $("#title").val();
         var expiredDate = $("#expiredDate").val();
         var summary = $("#summary").val();
         var priority = $("#priority").val();
         var selectedDate = new Date(expiredDate);
         var now = new Date;
-
         if (selectedDate < now) {
             $("#result").text("Invalid Date");
             return false;
