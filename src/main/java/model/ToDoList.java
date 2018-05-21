@@ -12,6 +12,7 @@ public class ToDoList {
     private Priority priority;
     private String id;
     private String button;
+    private String deleteButton;
 
 
 
@@ -77,5 +78,19 @@ public class ToDoList {
 
     public void setButton(String button) {
         this.button = button;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        ToDoList toDoList = (ToDoList) obj;
+        return this.id.equals(toDoList.id);
+    }
+
+    public String getDeleteButton() {
+        return deleteButton;
+    }
+
+    public void setDeleteButton(String deleteButton) {
+        this.deleteButton = deleteButton;
     }
 }

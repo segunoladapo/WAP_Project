@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * Created by 986296 on 5/19/2018.
  */
 
-@WebFilter(urlPatterns = {"/todoList","/welcome","/viewTodoList"})
+@WebFilter(urlPatterns = {"/todoList","/welcome","/viewTodoList","/todolistdelete"})
 public class AuthenticationFilter implements Filter{
 
     public void init(FilterConfig arg0) throws ServletException {}

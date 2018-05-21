@@ -23,6 +23,7 @@ public class ToDoListDao {
         toDoList.setId("1234444");
         toDoList.setCreateDate("jasndsajdkandkj");
         toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">View</button>");
+        toDoList.setDeleteButton("<button onclick=\"location.href = 'todolistdelete?id=" + toDoList.getId() +"'; return false;\">Delete</button>");
         toDoLists.add(toDoList);
     }
 
@@ -50,5 +51,11 @@ public class ToDoListDao {
         return toDoLists.stream()
                 .filter(todo -> todo.getId().equals(id))
                 .findFirst();
+    }
+
+    public static void deleteTodoList(String id){
+        ToDoList objToRemove = new ToDoList();
+        objToRemove.setId(id);
+        toDoLists.remove(objToRemove);
     }
 }
