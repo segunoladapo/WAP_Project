@@ -35,6 +35,9 @@
         <url-pattern>/welcome</url-pattern>
     </servlet-mapping>
 
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
 
 
 </web-app>

@@ -23,9 +23,10 @@
 
     <h1>Login</h1>
     <div id="loginBox">
+        <div id="errormessage"> <c:out value="${msg}"/></div>
+        <form id="frmLogin" action="/login" method = "post">
         <div class="formElement">
-            <div id="errormessage"> <c:out value="${msg}"/></div>
-          <div id="errorMsg"></div>
+
             <label for="userName">User Name</label>
             <div class="input">
                 <input type="text" name="userName" id="userName"/>
@@ -39,9 +40,9 @@
             </div>
         </div>
 
-        <%--<div class="formElement">--%>
-            <%--<label><input type="checkbox" name="keepLogged" /> Keep me logged</label>--%>
-        <%--</div>--%>
+        <div class="formElement">
+            <label><input type="checkbox" name="keepLogged" /> Remember me</label>
+        </div>
 
         <div id="submitionBlock">
             <button id="btnSubmit" class="btn">Log in</button>
@@ -51,6 +52,7 @@
             <%--<a href="forgotpass" title="Recover your password here">Forgot your password ?</a> | <a href="signup" title="Sign Up here">Sign Up</a>--%>
             <a href="/registration.jsp"><button class="btn" id="submitbtn">Sign up</button></a>
         </div>
+        </form>
     </div>
 </div>
 </body>
