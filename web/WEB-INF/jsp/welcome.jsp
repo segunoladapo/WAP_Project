@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 
+
     <link href="<c:url value="../../resources/css/taskslist.css" />" rel="stylesheet">
     <title>Title</title>
 </head>
@@ -100,7 +101,13 @@
                     var priority = $("#priority").val();
 
                     var selectedDate = new Date(expiredDate);
-                    var now = new Date;
+                    var now = new Date();
+
+                    if (!(new Date(expiredDate) !== "Invalid Date" && !isNaN(new Date(expiredDate)))){
+                        $("#result").text("Invalid Date");
+                        return false;
+                    }
+
                     if (selectedDate < now) {
                         $("#result").text("Invalid Date");
                         return false;
@@ -138,7 +145,7 @@
                             });
 
 
-                    }
+                        }
                 }
             );
         }

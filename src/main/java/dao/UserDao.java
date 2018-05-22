@@ -25,13 +25,13 @@ public class UserDao {
 
     public static Optional<User> findUser(String username){
         return users.stream()
-                .filter(user -> user.getUsername().equals(username))
+                .filter(user -> user.getUsername().equalsIgnoreCase(username))
                 .findAny();
     }
 
     public static Optional<User> findUserByPwdAndUsername(String username, String password){
         return users.stream()
-                .filter(user -> user.getUsername().equals(username) && user.getPassword().equals(password))
+                .filter(user -> user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password))
                 .findAny();
 
     }

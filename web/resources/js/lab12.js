@@ -3,7 +3,7 @@ $(function () {
     $("#btnSubmit").click(
         function (eventData) {
             //alert('ok');
-            var uName = $("#userName").val();
+            /*var uName = $("#userName").val();
             var pwd = $("#passWord").val();
             var keep = $("#keepLogged").val();
             $.post(
@@ -25,7 +25,10 @@ $(function () {
                         });
                         err.insertBefore("#loginBox",null);
                     }
-                });
+                });*/
+            $("#frmLogin").submit();
+
+
         }
     );
     }

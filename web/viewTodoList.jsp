@@ -32,11 +32,7 @@
 </div>
 
 <div id="expirydiv"><div id="datelabel">Expiry Date </div>
-    <input type="text" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}"
-           id="expiredDate" class="input" name="expiredDate"
-           title ="Format: MM/DD/YYYY"
-           required
-           value="${todoList.expiredDate}" >
+    <input type="text" id="expiredDate" class="input" name="expiredDate" required value="${todoList.expiredDate}">
 </div>
 
 <div id="summarydiv"><div id="summarylabel">Summary</div>
@@ -58,50 +54,25 @@
 </div>
 </body>
 <script>
-    /*
-    $(function () {
-
-        $("#submitbutton").click(
-            function () {
-                var title = $("#title").val();
-                var expiredDate = $("#expiredDate").val();
-                var summary = $("#summary").val();
-                var priority = $("#priority").val();
-                var selectedDate = new Date(expiredDate);
-                var now = new Date;
-
-                if (selectedDate < now) {
-                    $("#result").text("Invalid Date");
-                    return false;
-                }
-
-                if(title === "" || expiredDate === "" || summary ==="" || priority === "") {
-                    $("#result").text("Please enter some texts in the missing fields");
-                    return false;
-                }else{
-                    $.post(
-                        "/viewTodoList",
-                        {"title": title, "expiredDate": expiredDate, "summary": summary, "priority": priority})
-                        .done(function (data) {
-                            window.location.href = "/welcome";
-                        });
-
-                }
-            })});
-            */
 
     function validate() {
-
         var title = $("#title").val();
         var expiredDate = $("#expiredDate").val();
         var summary = $("#summary").val();
         var priority = $("#priority").val();
         var selectedDate = new Date(expiredDate);
-        var now = new Date;
+        var now = new Date();
+
         if (selectedDate < now) {
             $("#result").text("Invalid Date");
             return false;
         }
+
+        if (!(new Date(expiredDate) !== "Invalid Date" && !isNaN(new Date(expiredDate)))){
+            $("#result").text("Invalid Date");
+            return false;
+        }
+
         if(title === "" || expiredDate === "" || summary ==="" || priority === "") {
             $("#result").text("Please enter some texts in the missing fields");
             return false;
