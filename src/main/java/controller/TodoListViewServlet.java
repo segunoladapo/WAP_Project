@@ -38,6 +38,6 @@ public class TodoListViewServlet extends HttpServlet {
         toDoList.setPriority(Priority.valueOf(req.getParameter("priority")));
         toDoList.setSummary(req.getParameter("summary"));
         ToDoListDao.updateList(toDoList);
-        req.getRequestDispatcher("/WEB-INF/jsp/welcome.jsp").forward(req,resp);
+        resp.sendRedirect("/welcome");
     }
 }
