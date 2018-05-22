@@ -29,7 +29,6 @@
         <table id="example" class="display" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th>Name</th>
                 <th>Date Created</th>
                 <th>Title</th>
                 <th>Expiry Date</th>
@@ -82,7 +81,6 @@
                 "dataSrc":""
             },
             "columns": [
-                { "data": "username" },
                 { "data": "createDate" },
                 { "data": "title" },
                 { "data": "expiredDate" },
@@ -132,7 +130,6 @@
                                         "dataSrc": ""
                                     },
                                     "columns": [
-                                        {"data": "username"},
                                         {"data": "createDate"},
                                         {"data": "title"},
                                         {"data": "expiredDate"},
