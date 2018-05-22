@@ -33,7 +33,8 @@ public class ToDoListServlet extends HttpServlet {
         toDoList.setId(UUID.randomUUID().toString());
         toDoList.setPriority(Priority.valueOf((String)req.getParameter("priority")));
         toDoList.setCreateDate( new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
-        toDoList.setExpiredDate(req.getParameter("expiredDate"));
+        toDoList.setDueDateTime(req.getParameter("dueDateTime"));
+        toDoList.setStartDateTime(req.getParameter("startDateTime"));
         toDoList.setTitle(req.getParameter("title"));
         toDoList.setUsername(user.getUsername());
         toDoList.setSummary(req.getParameter("summary"));

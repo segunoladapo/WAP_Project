@@ -33,7 +33,8 @@ public class TodoListViewServlet extends HttpServlet {
         String id = req.getParameter("id");
         Optional<ToDoList> toDoListOptional = ToDoListDao.findToDoListById(id);
         ToDoList toDoList = toDoListOptional.get();
-        toDoList.setExpiredDate(req.getParameter("expiredDate"));
+        toDoList.setDueDateTime(req.getParameter("dueDateTime"));//has to be changed
+        toDoList.setStartDateTime(req.getParameter("startDateTime"));//has to be changed
         toDoList.setTitle(req.getParameter("title"));
         toDoList.setPriority(Priority.valueOf(req.getParameter("priority")));
         toDoList.setSummary(req.getParameter("summary"));
