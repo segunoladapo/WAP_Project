@@ -2,7 +2,10 @@ package dao;
 
 import model.Priority;
 import model.ToDoList;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -15,13 +18,13 @@ public class ToDoListDao {
     static {
         toDoLists = new ArrayList<>();
         ToDoList toDoList = new ToDoList();
-        toDoList.setExpiredDate("12/12/34");
+        toDoList.setExpiredDate("12/12/2020");
         toDoList.setUsername("sunil");
         toDoList.setSummary("Hello Summart");
         toDoList.setTitle("hello title");
         toDoList.setPriority(Priority.HIGH);
         toDoList.setId("1234444");
-        toDoList.setCreateDate("jasndsajdkandkj");
+        toDoList.setCreateDate( new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
         toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">View</button>");
         toDoList.setDeleteButton("<button onclick=\"location.href = 'todolistdelete?id=" + toDoList.getId() +"'; return false;\">Delete</button>");
         toDoLists.add(toDoList);

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +32,7 @@ public class ToDoListServlet extends HttpServlet {
         ToDoList toDoList = new ToDoList();
         toDoList.setId(UUID.randomUUID().toString());
         toDoList.setPriority(Priority.valueOf((String)req.getParameter("priority")));
-        toDoList.setCreateDate(new Date().toString());
+        toDoList.setCreateDate( new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
         toDoList.setExpiredDate(req.getParameter("expiredDate"));
         toDoList.setTitle(req.getParameter("title"));
         toDoList.setUsername(user.getUsername());
