@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  * Created by 986296 on 5/21/2018.
  */
 
-@WebFilter(urlPatterns = {"/"})
+//@WebFilter(urlPatterns = {"/"})
 public class UnathenticatedFilter implements Filter{
     public void init(FilterConfig arg0) throws ServletException {}
 

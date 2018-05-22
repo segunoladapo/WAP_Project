@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 
     <link href="<c:url value='resources/css/todotaskslist.css' />" rel="stylesheet">
-    <title>View</title>
+    <title>Edit Your Item</title>
 
 </head>
 <body>
@@ -30,9 +30,12 @@
 <div id="titlediv"><div id="titlelabel">Title</div>
     <input value="<c:out value='${todoList.title}'/>" type="text" id="title" class="input" name="title" required >
 </div>
+    <div id="startdatediv"><div id="startdatelabel">Start Date and Time</div>
+        <input type="text" id="startDateTime" class="input" name="startDateTime" required value="${todoList.startDateTime}">
+    </div>
 
-<div id="expirydiv"><div id="datelabel">Expiry Date </div>
-    <input type="text" id="expiredDate" class="input" name="expiredDate" required value="${todoList.expiredDate}">
+<div id="expirydiv"><div id="datelabel">Due Date and Time </div>
+    <input type="text" id="dueDateTime" class="input" name="dueDateTime" required value="${todoList.dueDateTime}">
 </div>
 
 <div id="summarydiv"><div id="summarylabel">Summary</div>
@@ -49,15 +52,25 @@
 </div>
 <div id="submitdiv">
     <input type="submit" value="Update" class="mybutton" id="submitbutton">
+    <button class="mybutton" id="backButton">Done</button>
 </div>
     </form>
 </div>
 </body>
 <script>
+    $(
+        function () {
+            $("#backButton").click(function (evt) {
+                evt.preventDefault();
+                window.location='/welcome';
+            });
+        }
+    );
 
     function validate() {
         var title = $("#title").val();
-        var expiredDate = $("#expiredDate").val();
+        var startDate = $("#startDatTime").val();
+        var expiredDate = $("#dueDateTime").val();
         var summary = $("#summary").val();
         var priority = $("#priority").val();
         var selectedDate = new Date(expiredDate);
@@ -68,8 +81,8 @@
             return false;
         }
 
-        if (!(new Date(expiredDate) !== "Invalid Date" && !isNaN(new Date(expiredDate)))){
-            $("#result").text("Invalid Date");
+        if (!(new Date(expiredDate) !== "Invalid Date" && !isNaN(new Date(expiredDate))) && !(new Date(startDate) !== "Invalid Date" && !isNaN(new Date(startDate)))){
+            $("#result").text("Invalid Start or Due Date");
             return false;
         }
 

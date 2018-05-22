@@ -45,7 +45,7 @@
             <button class="btn" id="submitbtn">Sign up</button>
         </div>
 
-        <p>Already have an account? <a href="/login">Login</a></p>
+        <p>Already have an account? <a href="/">Login</a></p>
     </div>
     </form>
 </div>

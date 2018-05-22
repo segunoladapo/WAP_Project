@@ -18,7 +18,8 @@ public class ToDoListDao {
     static {
         toDoLists = new ArrayList<>();
         ToDoList toDoList = new ToDoList();
-        toDoList.setExpiredDate("12/12/2020");
+        toDoList.setDueDateTime("12/12/2020");
+        toDoList.setStartDateTime("12/12/2020");//arthur
         toDoList.setUsername("sunil");
         toDoList.setSummary("Hello Summart");
         toDoList.setTitle("hello title");
@@ -45,7 +46,7 @@ public class ToDoListDao {
                 .filter(todo -> todo.getId().equals(toDoList.getId())).findAny().get();
         toDoList1.setPriority(toDoList.getPriority());
         toDoList1.setSummary(toDoList.getSummary());
-        toDoList1.setExpiredDate(toDoList.getExpiredDate());
+        toDoList1.setDueDateTime(toDoList.getDueDateTime());
         toDoList.setTitle(toDoList.getTitle());
         return toDoList1;
     }

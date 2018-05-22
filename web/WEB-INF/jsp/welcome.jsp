@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -18,7 +19,7 @@
 
 
     <link href="<c:url value="../../resources/css/taskslist.css" />" rel="stylesheet">
-    <title>Title</title>
+    <title>Dashboard - ToDo Master</title>
 </head>
 <body>
     <div id="logoutbuttondiv">
@@ -31,7 +32,8 @@
             <tr>
                 <th>Date Created</th>
                 <th>Title</th>
-                <th>Expiry Date</th>
+                <th>Start Date and Time</th>
+                <th>Due date and Time</th>
                 <th>Priority</th>
                 <th>View</th>
                 <th>Delete</th>
@@ -47,12 +49,20 @@
             <input type="text" id="title" class="input" name="title" required>
         </div>
 
-        <div id="expirydiv"><div id="datelabel">Expiry Date </div>
-            <input type="input" id="expiredDate"
+        <div id="startDatediv"><div id="startdatelabel">Start Date and Time</div>
+            <input type="input" id="startDateTime"
                    class="input"
-                   name="expiredDate" placeholder="MM/DD/YYYY"
+                   name="startDateTime" placeholder="MM/DD/YYYY"
                    required title ="Format: MM/DD/YYYY"
-                   pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}">
+                   pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}" />
+        </div>
+
+        <div id="expirydiv"><div id="datelabel">Due Date and Time</div>
+            <input type="input" id="dueDateTime"
+                   class="input"
+                   name="dueDateTime" placeholder="MM/DD/YYYY"
+                   required title ="Format: MM/DD/YYYY"
+                   pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}" />
         </div>
 
         <div id="summarydiv"><div id="summarylabel">Summary</div>
@@ -83,7 +93,8 @@
             "columns": [
                 { "data": "createDate" },
                 { "data": "title" },
-                { "data": "expiredDate" },
+                { "data": "startDateTime" },
+                { "data": "dueDateTime" },
                 { "data": "priority" },
                 { "data": "button" },
                 { "data":"deleteButton"}
@@ -94,15 +105,21 @@
             $("#submitbutton").click(
                 function (eventData) {
                     var title = $("#title").val();
-                    var expiredDate = $("#expiredDate").val();
+                    var expiredDate = $("#dueDateTime").val();
                     var summary = $("#summary").val();
                     var priority = $("#priority").val();
+
+                    var startDate = $("#startDateTime").val();
 
                     var selectedDate = new Date(expiredDate);
                     var now = new Date();
 
                     if (!(new Date(expiredDate) !== "Invalid Date" && !isNaN(new Date(expiredDate)))){
-                        $("#result").text("Invalid Date");
+                        $("#result").text("Invalid Due Date");
+                        return false;
+                    }
+                    if (!(new Date(startDate) !== "Invalid Date" && !isNaN(new Date(startDate)))){
+                        $("#result").text("Invalid Start Date");
                         return false;
                     }
 
@@ -117,10 +134,11 @@
 
                         $.post(
                             "/todoList",
-                            {"title": title, "expiredDate": expiredDate, "summary": summary, "priority": priority})
+                            {"title": title, "dueDateTime": expiredDate,"startDateTime":startDate, "summary": summary, "priority": priority})
                             .done(function (data) {
                                 $("#title").value = "";
-                                $("#expiredDate").value = "";
+                                $("#dueDateTime").value = "";
+                                $("#startDateTime").value = "";
                                 $("#summary").value = "";
                                 $("#result").text(data.message);
                                 $("#example").DataTable({
@@ -132,7 +150,8 @@
                                     "columns": [
                                         {"data": "createDate"},
                                         {"data": "title"},
-                                        {"data": "expiredDate"},
+                                        { "data": "startDateTime" },
+                                        { "data": "dueDateTime" },
                                         {"data": "priority"},
                                         {"data": "button"},
                                         { "data":"deleteButton"}

@@ -29,7 +29,42 @@ $(function () {
             $("#frmLogin").submit();
 
 
-        }
-    );
+        } );
+
+    $("#btnSignUp").click(
+        function (eventData) {
+            eventData.preventDefault();
+            window.location = '/registration.jsp';
+        } );
+
+    var uName = getCookie("uName");
+    var pwd = getCookie("pwd");
+
+    if(uName !="" && pwd != ""){
+        $("#userName").val(uName);
+        $("#passWord").val(pwd);
+        $("#keepLogged").attr("checked",true);
+
+    }
+
+
+
+
     }
 );
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}

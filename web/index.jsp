@@ -11,10 +11,10 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
-
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to ToDo Master</title>
+    <title>Login</title>
     <link href="<c:url value="resources/css/lab12.css" />" rel="stylesheet">
 
 </head>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="formElement">
-            <label><input type="checkbox" name="keepLogged" /> Remember me</label>
+            <label><input type="checkbox" name="keepLogged" id="keepLogged" value="1" /> Remember me</label>
         </div>
 
         <div id="submitionBlock">
@@ -50,7 +50,8 @@
 
         <div id="signupforgot">
             <%--<a href="forgotpass" title="Recover your password here">Forgot your password ?</a> | <a href="signup" title="Sign Up here">Sign Up</a>--%>
-            <a href="/registration.jsp"><button class="btn" id="submitbtn">Sign up</button></a>
+
+                <button id="btnSignUp" class="btn">Sign Up</button>
         </div>
         </form>
     </div>

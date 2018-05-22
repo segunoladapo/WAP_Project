@@ -8,12 +8,13 @@ public class ToDoList {
     private String createDate;
     private String title;
     private String summary;
-    private String expiredDate;
+    private String dueDateTime;//arthur
     private Priority priority;
     private String id;
     private String button;
     private String deleteButton;
 
+    private String startDateTime;//arthur
 
 
     public String getUsername() {
@@ -28,6 +29,8 @@ public class ToDoList {
         return createDate;
     }
 
+    public String getStartDateTime(){return this.startDateTime;}
+
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
@@ -40,13 +43,15 @@ public class ToDoList {
         this.summary = summary;
     }
 
-    public String getExpiredDate() {
-        return expiredDate;
+    public String getDueDateTime() {
+        return dueDateTime;
     }
 
-    public void setExpiredDate(String expiredDate) {
-        this.expiredDate = expiredDate;
-    }
+    public void setDueDateTime(String dueDateTime) {
+        this.dueDateTime = dueDateTime;
+    }//arthur
+
+    public void setStartDateTime(String startDateTime){this.startDateTime=startDateTime;}//arthur
 
     public Priority getPriority() {
         return priority;

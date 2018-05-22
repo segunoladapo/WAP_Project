@@ -26,7 +26,7 @@ public class AuthenticationServlet extends HttpServlet {
 
         try {
 
-            PrintWriter out = resp.getWriter();
+            //PrintWriter out = resp.getWriter();
             //AuthResponse authResponse = new AuthResponse();
             String uName = req.getParameter("userName").trim();
             String pwd = req.getParameter("passWord");
@@ -39,7 +39,8 @@ public class AuthenticationServlet extends HttpServlet {
 
                     HttpSession sess = req.getSession();
                     sess.setAttribute("userName", optUser.get());
-                    if(keepLogged!=null && keepLogged.equalsIgnoreCase("yes")){
+                    if(keepLogged!=null && (Integer.parseInt(keepLogged) == 1)){
+
                         Cookie cU  = new Cookie("uName",uName);
                         Cookie cP  = new Cookie("pwd",pwd);
                         cU.setMaxAge(7200);
@@ -50,7 +51,7 @@ public class AuthenticationServlet extends HttpServlet {
                     else {
                         for(Cookie c : req.getCookies()){
                             if (c.getName().equals("uName") || c.getName().equals("pwd")) {
-                                c.setMaxAge(-1);
+                                c.setMaxAge(0);
                                 resp.addCookie(c);
                             }
                         }
