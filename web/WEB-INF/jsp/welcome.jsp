@@ -37,6 +37,7 @@
                 <th>Priority</th>
                 <th>View</th>
                 <th>Delete</th>
+                <th>Done</th>
             </tr>
             </thead>
 
@@ -84,6 +85,26 @@
 </div>
 </body>
 <script>
+
+    function deleteTask(id){
+        if(confirm("Do you really want to delete this task ?")){
+            removeFromView(id);
+        }
+    }
+
+
+    function setAsDone(id) {
+        //alert(id);
+        if(confirm("Do you want to mark this task as done ?")){
+            removeFromView(id);
+        }
+    }
+    function removeFromView(id) {
+        //alert(id);
+
+            location.href = "todolistdelete?id="+id;
+
+    }
     $(document).ready(function() {
         $("#example").DataTable({
             "ajax": {
@@ -97,7 +118,8 @@
                 { "data": "dueDateTime" },
                 { "data": "priority" },
                 { "data": "button" },
-                { "data":"deleteButton"}
+                { "data":"deleteButton"},
+                { "data":"asDoneButton"}
             ]
         });
     });

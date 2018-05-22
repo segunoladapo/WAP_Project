@@ -12,11 +12,16 @@ public class ToDoList {
     private Priority priority;
     private String id;
     private String button;
+    private  boolean done;
+
     private String deleteButton;
+    private String asDoneButton;
 
     private String startDateTime;//arthur
 
+    public boolean isDone(){return this.done;}
 
+    public void setDone(boolean value){this.done=value;}
     public String getUsername() {
         return username;
     }
@@ -31,6 +36,9 @@ public class ToDoList {
 
     public String getStartDateTime(){return this.startDateTime;}
 
+    public String getAsDoneButton(){return this.asDoneButton;}
+
+    public  void setAsDoneButton(String value){this.asDoneButton = value;}
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }

@@ -38,8 +38,10 @@ public class ToDoListServlet extends HttpServlet {
         toDoList.setTitle(req.getParameter("title"));
         toDoList.setUsername(user.getUsername());
         toDoList.setSummary(req.getParameter("summary"));
-        toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">View</button>");
-        toDoList.setDeleteButton("<button onclick=\"location.href = 'todolistdelete?id=" + toDoList.getId() +"'; return false;\">Delete</button>");
+        toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">Edit</button>");
+        toDoList.setDeleteButton("<button id='"+toDoList.getId()+"' onclick=\'deleteTask(this.id);return false;\'>Delete</button>");
+        toDoList.setAsDoneButton("<button id='"+toDoList.getId()+"' onclick=\'setAsDone(this.id);return false;\'>Done</button>");
+
 
         ToDoListDao.AddList(toDoList);
         resp.setContentType("application/json");

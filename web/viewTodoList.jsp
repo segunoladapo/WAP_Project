@@ -67,6 +67,7 @@
         }
     );
 
+
     function validate() {
         var title = $("#title").val();
         var startDate = $("#startDatTime").val();

@@ -21,14 +21,44 @@ public class ToDoListDao {
         toDoList.setDueDateTime("12/12/2020");
         toDoList.setStartDateTime("12/12/2020");//arthur
         toDoList.setUsername("sunil");
-        toDoList.setSummary("Hello Summart");
-        toDoList.setTitle("hello title");
+        toDoList.setSummary("Go to the walmart to buy milk and some clothes");
+        toDoList.setTitle("Go to the walmart");
+        toDoList.setDone(false);
         toDoList.setPriority(Priority.HIGH);
         toDoList.setId("1234444");
         toDoList.setCreateDate( new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
-        toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">View</button>");
-        toDoList.setDeleteButton("<button onclick=\"location.href = 'todolistdelete?id=" + toDoList.getId() +"'; return false;\">Delete</button>");
+        toDoList.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">Edit</button>");
+        toDoList.setDeleteButton("<button id='"+toDoList.getId()+"' onclick=\'deleteTask(this.id);return false;\'>Delete</button>");
+        toDoList.setAsDoneButton("<button id='"+toDoList.getId()+"' onclick=\'setAsDone(this.id);return false;\'>Done</button>");
+
+
+        ToDoList toDoList2 = new ToDoList();
+        toDoList2.setDueDateTime("05/22/2020 08:00:00 AM");
+        toDoList2.setStartDateTime("05/22/2020 05:00:00 PM");//arthur
+        toDoList2.setUsername("sunil");
+        toDoList2.setSummary("Read notes for exam");
+        toDoList2.setTitle("Read Notes");
+        toDoList2.setDone(false);
+        toDoList2.setPriority(Priority.HIGH);
+        toDoList2.setId("1235544");
+        toDoList2.setCreateDate( new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
+        toDoList2.setButton("<button onclick=\"location.href = 'viewTodoList?id=" + toDoList.getId() +"'; return false;\">Edit</button>");
+        toDoList2.setDeleteButton("<button id='"+toDoList.getId()+"' onclick=\'deleteTask(this.id);return false;\'>Delete</button>");
+        toDoList2.setAsDoneButton("<button id='"+toDoList.getId()+"' onclick=\'setAsDone(this.id);return false;\'>Done</button>");
+
+
+
+
+
+
+
+
+
+
+
+
         toDoLists.add(toDoList);
+        toDoLists.add(toDoList2);
     }
 
     public static void AddList(ToDoList toDoList){
